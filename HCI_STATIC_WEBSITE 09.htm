@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starbucks Coffee</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+  background: #006341;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  border-bottom: 2px solid white;
+}
+
+.logo {
+  width: 40px;
+}
+
+/* SECTIONS */
+section {
+  padding: 120px 100px;
+}
+
+/* HOME */
+#home {
+  color: white;
+  text-align: center;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('https://www.starbucksathome.com/sites/default/files/2024-10/Cappuccino_11zon.png') no-repeat center/cover;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.6);
+  padding: 50px;
+  border-radius: 20px;
+}
+
+/* ABOUT */
+#about {
+  background: url('https://c0.wallpaperflare.com/preview/79/859/750/starbucks-coffee-building.jpg') no-repeat center center/cover;
+  position: relative;
+  color: white;
+  width: 100%;
+  min-height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+p {
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 50px;
+  text-align: center;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* MENU SCROLL */
+.menu-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.menu-container::-webkit-scrollbar {
+  height: 15px;
+}
+
+.menu-container::-webkit-scrollbar-thumb {
+  background: #006341;
+  border-radius: 10px;
+}
+
+.menu-item {
+  min-width: 300px;
+  text-align: center;
+  scroll-snap-align: center;
+  transition: 0.5s;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+}
+
+.menu-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.menu-label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.menu-price {
+  color: gray;
+}
+
+.menu-subtitle {
+  color: #006341;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+/* ORDER FORM STYLE */
+#order-here {
+  background: #f4f4f4;
+  text-align: center;
+}
+
+#order-here form {
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  width: 350px;
+  margin: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+#order-here input,
+#order-here select {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+#order-here input:focus,
+#order-here select:focus {
+  border-color: #006341;
+  box-shadow: 0 0 5px rgba(0,99,65,0.5);
+}
+
+#order-here .order-btn {
+  width: 100%;
+  margin-top: 5px;
+}
+
+h3 {
+  text-align: left;
+  margin-bottom: 8px;
+  color: #006341;
+}
+
+/* BUTTON */
+.order-btn {
+  padding: 20px 50px;
+  font-size: 20px;
+  background: #00703c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.order-btn:hover {
+  background: #004d2b;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #006341;
+  color: white;
+}
+
+footer a img {
+  margin: 0 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 5px 10px;
+  }
+
+  section {
+    padding: 90px 20px;
+  }
+
+  #order-here form {
+    width: 90%;
+    padding: 25px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1280px-Starbucks_Corporation_Logo_2011.svg.png" class="logo" alt="Starbucks logo">
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#order-here">Order</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home">
+  <div class="overlay">
+    <h1>Welcome to Starbucks</h1>
+    <p>Fresh • Cozy • Inspired Coffee</p>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+
+  <p>
+    Starbucks was founded in 1971 in Seattle, Washington, and has since grown into the world’s largest and most recognized coffeehouse brand. Originally a small coffee bean retailer at Pike Place Market, it transformed under Howard Schultz into a global café chain serving handcrafted espresso drinks, lattes, Frappuccinos, teas, and a variety of pastries and snacks.
+  </p>
+
+  <p>
+    The brand is known not just for high-quality Arabica coffee, but also for creating a welcoming “third place” where people can relax, work, or connect with others. Starbucks emphasizes ethical sourcing, sustainability, and community engagement while maintaining its passion for coffee.
+  </p>
+
+  <a href="https://en.wikipedia.org/wiki/Starbucks" target="_blank">
+    <button class="order-btn">Learn More</button>
+  </a>
+</section>
+
+<section id="menu">
+  <h2>Our Menu</h2>
+
+  <h3 class="menu-subtitle">Drinks</h3>
+  <p>Scroll sideways for drinks →</p>
+
+  <div class="menu-container">
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/750/UVtk5HDKK6zfI80AUV6f1mZF5jCIIXkudZdZK3cR.jpeg" class="menu-img" alt="Raspberry Chocolate Latte">
+      <div class="menu-label">Raspberry Chocolate Latte</div>
+      <div class="menu-price">₱185</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/764/jwVeq0H6iH3OEEYqmfxw1I3rJHMU5nPWNPf87tCY.jpeg" class="menu-img" alt="Matcha Latte">
+      <div class="menu-label">Matcha Latte</div>
+      <div class="menu-price">₱155</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/765/WjMviio59VX8gbj1ZdHYcHiDPVZDcqPuqHRNSFtL.jpeg" class="menu-img" alt="Strawberry Frappuccino">
+      <div class="menu-label">Strawberry Frappuccino</div>
+      <div class="menu-price">₱175</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/750/UVtk5HDKK6zfI80AUV6f1mZF5jCIIXkudZdZK3cR.jpeg" class="menu-img" alt="Iced Raspberry Chocolate Mousse Oatmilk Latte">
+      <div class="menu-label">Iced Raspberry Chocolate Mousse Oatmilk Latte</div>
+      <div class="menu-price">₱168</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/752/hk3M9YUTtPULh56e0zARb6auhNNnmobFe6xbMI64.jpeg" class="menu-img" alt="Raspberry Chocolate Mousse Oatmilk Latte">
+      <div class="menu-label">Raspberry Chocolate Mousse Oatmilk Latte</div>
+      <div class="menu-price">₱172</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbucks.ph/seed_data/ITEA_IcedGreenTeaLatte.jpg" class="menu-img" alt="Iced Pure Matcha Latte">
+      <div class="menu-label">Iced Pure Matcha Latte</div>
+      <div class="menu-price">₱165</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbucks.ph/seed_data/ITEA_IcedMatchaandEspressoFusion.jpg" class="menu-img" alt="Iced Pure Matcha and Espresso Fusion">
+      <div class="menu-label">Iced Pure Matcha and Espresso Fusion</div>
+      <div class="menu-price">₱178</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbucks.ph/seed_data/FRAPCRE_ChocolateChipCreamFrappuccino.jpg" class="menu-img" alt="Chocolate Chip Cream Frappuccino">
+      <div class="menu-label">Chocolate Chip Cream Frappuccino</div>
+      <div class="menu-price">₱169</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbucks.ph/seed_data/FRAPCRE_GreenTeaCreamFrappuccino.jpg" class="menu-img" alt="Pure Matcha Cream Frappuccino">
+      <div class="menu-label">Pure Matcha Cream Frappuccino</div>
+      <div class="menu-price">₱174</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbucks.ph/seed_data/FRAPCOF_DarkCaramelCoffeeFrappuccino.jpg" class="menu-img" alt="Dark Caramel Coffee Frappuccino">
+      <div class="menu-label">Dark Caramel Coffee Frappuccino</div>
+      <div class="menu-price">₱182</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbucks.ph/seed_data/FRAPCOF_CoffeeJellyFrappuccino.jpg" class="menu-img" alt="Coffee Jelly Frappuccino">
+      <div class="menu-label">Coffee Jelly Frappuccino</div>
+      <div class="menu-price">₱176</div>
+    </div>
+  </div>
+
+  <h3 class="menu-subtitle">Desserts</h3>
+  <p>Scroll sideways for desserts →</p>
+
+  <div class="menu-container">
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/202204/Jd5lS2cTJ4qHAj4l5lKlx4jnX6lRU1PM5tv6uGAo.jpeg" class="menu-img" alt="Sausage Roll">
+      <div class="menu-label">Sausage Roll</div>
+      <div class="menu-price">₱120</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/202204/cFVtkRa6ZFnUqn1n51QHjLQikDmDXfKBO19ZbiOB.jpeg" class="menu-img" alt="Triple Cheese Ensaymada">
+      <div class="menu-label">Triple Cheese Ensaymada</div>
+      <div class="menu-price">₱150</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/627/8VcX3avE1SY0GNAMd2xwpc8y0pyvdGeKHwMsMMOF.jpeg" class="menu-img" alt="Butter Croissant">
+      <div class="menu-label">Butter Croissant</div>
+      <div class="menu-price">₱95</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbucks.ph/seed_data/SausageandBaconFlatbread.jpg	" class="menu-img" alt="Sausage and Bacon Flatbread">
+      <div class="menu-label">Sausage and Bacon FlatbreadSausage and Bacon Flatbread</div>
+      <div class="menu-price">₱85</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/626/JvpM4XsQZaQEM0PHH4QlmnoFfGrYNcOE17rYsT5l.jpeg" class="menu-img" alt="Chocolate Pistachio Dream Bar">
+      <div class="menu-label">Chocolate Pistachio Dream Bar</div>
+      <div class="menu-price">₱110</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/630/H5p7YQDsXNW1dDUTQYfwh4yJKvtShxKqxkqi0SFt.jpeg" class="menu-img" alt="Sourdough Bagel">
+      <div class="menu-label">Sourdough Bagel</div>
+      <div class="menu-price">₱140</div>
+    </div>
+
+    <div class="menu-item">
+      <img src="https://starbuckscard.ph/sbcard-admin/storage/app/public/menu/628/XYnCm6VNSQgOAlE6evxvmhfasVXc0eBAx3OkVHmQ.jpeg" class="menu-img" alt="Cheesy Liege Puffle">
+      <div class="menu-label">Cheesy Liege Puffle</div>
+      <div class="menu-price">₱105</div>
+    </div>
+
+    </section>
+
+<section id="order-here">
+  <h2>Order Here</h2>
+
+  <form>
+    <input type="text" placeholder="Your Name" required><br><br>
+    <input type="text" placeholder="Contact Number" required><br><br>
+
+    <h3>DRINKS</h3>
+    <select required>
+      <option value="">Select Drink</option>
+      <option>Raspberry Chocolate Latte ₱185</option>
+      <option>Matcha Latte ₱155</option>
+      <option>Strawberry Frappuccino ₱175</option>
+      <option>Iced Raspberry Chocolate Mousse Oatmilk Latte ₱168</option>
+      <option>Raspberry Chocolate Mousse Oatmilk Latte ₱172</option>
+      <option>Iced Pure Matcha Latte ₱165</option>
+      <option>Iced Pure Matcha and Espresso Fusion ₱178</option>
+      <option>Chocolate Chip Cream Frappuccino ₱169</option>
+      <option>Pure Matcha Cream Frappuccino ₱174</option>
+      <option>Dark Caramel Coffee Frappuccino ₱182</option>
+      <option>Coffee Jelly Frappuccino ₱176</option>
+    </select><br><br>
+
+    <h3>DESSERTS (optional)</h3>
+    <select>
+      <option value="">Select Dessert</option>
+      <option>Chocolate Cake ₱120</option>
+      <option>Blueberry Cheesecake ₱150</option>
+      <option>Butter Croissant ₱95</option>
+      <option>Classic Donut ₱85</option>
+      <option>Chocolate Muffin ₱110</option>
+      <option>Macarons ₱140</option>
+      <option>Red Velvet Cupcake ₱105</option>
+      <option>Cinnamon Roll ₱115</option>
+      <option>No Dessert</option>
+    </select><br><br>
+
+    <h3>SUGAR LEVEL</h3>
+    <select required>
+      <option value="">Select</option>
+      <option>0% (No Sugar)</option>
+      <option>25%</option>
+      <option>50%</option>
+      <option>75%</option>
+      <option>100%</option>
+    </select><br><br>
+
+    <h3>ICE LEVEL</h3>
+    <select required>
+      <option value="">Select</option>
+      <option>Standard / Regular Ice</option>
+      <option>Light Ice</option>
+      <option>Extra Ice</option>
+      <option>No Ice</option>
+    </select><br><br>
+
+    <h3>COFFEE SIZES</h3>
+    <select required>
+      <option value="">Select</option>
+      <option>Demi</option>
+      <option>Short</option>
+      <option>Tall</option>
+      <option>Grande</option>
+      <option>Venti</option>
+      <option>Trenta</option>
+    </select><br><br>
+
+    <button class="order-btn" type="submit">Order</button>
+  </form>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: info@starbucks.com</p>
+  <p>Phone: +63 912 345 6789</p>
+</section>
+
+<footer>
+  <a href="https://www.facebook.com/StarbucksPhilippines/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="40">
+  </a>
+  <a href="https://www.instagram.com/starbucksph/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="40">
+  </a>
+  <a href="https://www.youtube.com/@Starbucks" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="40">
+  </a>
+  <a href="https://twitter.com/Starbucks" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="40">
+  </a>
+
+  <h5>© 2026 Starbucks Coffee Company. All rights reserved.</h5>
+</footer>
+
+</body>
+</html>
